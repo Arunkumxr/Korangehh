@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <link rel="stylesheet" href="log.css">
+    <center>
+        <h1 class="title">LETS CELEBRATE KORANGU'S BDY🐒🎂</h1>
+
+        <div class="login">
+            <h1>LOGIN</h1>
+            <form id="one">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" placeholder="User name" style="color: azure;" id="three"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" placeholder="Password" id="two"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td> <input type="submit" class="two"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <p id="massage" style="color: red;"></p>
+    </center>
+    
+    <script>
+    document.getElementById("one").addEventListener("submit", function (event) {
+      event.preventDefault(); // prevent reload
+
+      const enteredPass1 = document.getElementById("three").value;
+      const enteredPass2 = document.getElementById("two").value;
+
+      const correctPass1 = "KORANGEHH";
+      const correctPass2 = "09072006";
+
+      if (enteredPass1 === correctPass1 && enteredPass2 === correctPass2) {
+        // ✅ Both passwords are correct
+        window.location.href = "srt.html";
+      } else {
+        document.getElementById("message").textContent = "Incorrect password(s)!";
+      }
+    });
+  </script>
+
+</body>
+</html>
+  </script>
+
+</body>
+</html>
+    </script>
+</body>
+
+</html>
