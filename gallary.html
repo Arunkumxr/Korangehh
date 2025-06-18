@@ -323,7 +323,145 @@
             100% {
                 transform: translateX(100%);
             }
-        }    
+        }  
+        /* Pookie Message Modal Styles */
+        .pookie-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .pookie-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .pookie-message-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 3px solid white;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .pookie-modal.active .pookie-message-container {
+            transform: scale(1);
+        }
+
+        .pookie-message {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 28px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pookie-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pookie-close:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg);
+        }
+
+        .pookie-decoration {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .pookie-heart1 {
+            top: 20px;
+            left: 20px;
+            transform: rotate(-15deg);
+        }
+
+        .pookie-heart2 {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(15deg);
+        }
+
+        .pookie-star1 {
+            top: 60px;
+            right: 40px;
+            transform: rotate(20deg);
+        }
+
+        .pookie-star2 {
+            bottom: 50px;
+            left: 30px;
+            transform: rotate(-10deg);
+        }
+
+        /* Mirror effect background */
+        .mirror-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(5deg) scale(1.1);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .mirror-effect:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            border-radius: 20px;
+        }
+    </style>
+</head>
     </style>
 </head>
 <body>
@@ -339,6 +477,20 @@
     <!-- Pookie Button -->
     <div class="pookie-btn-container">
         <button id="pookie-btn">🤍Thangamey🤍</button>
+    </div>
+    <!-- Pookie Message Modal -->
+    <div class="pookie-modal">
+        <div class="pookie-message-container">
+            <div class="mirror-effect"></div>
+            <div class="pookie-decoration pookie-heart1">💕</div>
+            <div class="pookie-decoration pookie-heart2">💗</div>
+            <div class="pookie-decoration pookie-star1">✨</div>
+            <div class="pookie-decoration pookie-star2">✨</div>
+            <div class="pookie-close">×</div>
+            <div class="pookie-message">
+          
+            </div>
+        </div>
     </div>
 
     
@@ -448,6 +600,31 @@
             gallery.style.animation = 'none';
             gallery.offsetHeight; // Trigger reflow
             gallery.style.animation = 'scroll 20s linear infinite';
+        });
+         // Pookie Button Functionality
+        const pookieBtn = document.querySelector('.pookie-btn');
+        const pookieModal = document.querySelector('.pookie-modal');
+        const pookieClose = document.querySelector('.pookie-close');
+        
+        // Array of cute pookie messages
+        const pookieMessages = [
+           "Poovalam vadunah boomi eh vadanum... Un mogam vadunah Nan thanga mataney...🥺Pallatha matumey patha en thozhi ehh... 🤌🏻🫠Usarathil Unnadhan thooki Nan somapaney... 🫶🏻😌🕊️ kadal ala pola un kal thottu urasi... Kadal ula poravan Nan ela dii... 😩Kadal manna pola un kall oda otti... Karra thandum vara nan erupennah dii😭🤌🏻🤍"
+        ];
+        
+        // Show pookie modal with random message
+        pookieBtn.addEventListener('click', () => {
+            // Select random pookie message
+            const randomMessage = pookieMessages[Math.floor(Math.random() * pookieMessages.length)];
+            document.querySelector('.pookie-message').innerHTML = randomMessage;
+            
+            // Show modal with animation
+            pookieModal.classList.add('active');
+            
+            // Create floating hearts around the button
+            createFloatingHearts(
+                pookieBtn.getBoundingClientRect().left + pookieBtn.offsetWidth/2,
+                pookieBtn.getBoundingClientRect().top
+            );
         });
 
        
