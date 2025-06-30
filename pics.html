@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LETS SHARE CAKE</title>
+    <title>GALLERY</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -252,6 +252,65 @@
                 display: none;
             }
         }
+          .overlay {
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            opacity: 1;
+            z-index: 5;
+            display: none;
+
+        }
+
+        .popupvideo {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            align-content: center;
+            justify-content: center;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)translateY(-50%);
+            background-color: rgb(0, 0, 0);
+            opacity: 1;
+
+
+
+        }
+
+        .onew {
+            height: 60%;
+            width: 250px;
+            background-color: rgb(0, 0, 0);
+            opacity: 1;
+        }
+
+        .buttonc {
+            background-color: rgb(0, 0, 0);
+            border-radius: 100%;
+            border-width: 1px;
+            height: 40px;
+            width: 40px;
+            border-color: black;
+            margin-top: 10%;
+            color: rgb(255, 238, 238);
+            display: flex;
+         margin: 20px;
+         padding: 20px;
+         margin-top: 100px;
+         margin-left: 80%;
+        
+          
+        }
+        .buttonc :focus{
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -261,11 +320,22 @@
         <div class="gif-container">
             <img src="./kiss (1).gif">
         </div>
-        <div class="button-container">
+      <div class="button-container">
             <button class="btn" id="colorBtn">Change Color</button>
-            <button class="btn" id="enterBtn">Enterinto another world</button>
+            <button class="btn" id="enterBtn">Enter Our World</button>
+
+            <button class="btn" id="vid" onclick="show()">Special Video </button>
+
         </div>
     </div>
+    <div class="overlay">
+        <div class="popupvideo">
+            <video controls src="Arun.mp4" class="onew"></video>
+        </div><div>
+            <button class="buttonc" onclick="closee()">X</button>
+        </div>
+    </div>
+
 
     <script>
         // Create stars
@@ -331,6 +401,19 @@
                 body.classList.remove('fadeOut');
             }
         });
+          //popup overlay
+        var popupoverlay = document.querySelector(".overlay")
+        var popupvideo = document.querySelector(".popupvideo")
+        function show() {
+            popupoverlay.style.display = "block"
+            popupvideo.style.display = "flex"
+
+        }
+        function closee() {
+            popupoverlay.style.display = "none"
+            popupvideo.style.display = "none"
+
+        }
     </script>
 </body>
 </html>
