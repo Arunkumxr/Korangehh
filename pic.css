@@ -745,7 +745,7 @@ body {
     .box__letter .letter__border {
         position: absolute;
         width: 90vw;
-        height: 315px;
+        height: 500px;
         background-color: var(--color-white);
         border-radius: 27px;
         padding: 17px;
