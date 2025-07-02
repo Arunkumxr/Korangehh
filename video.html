@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special video</title>
+</head>
+
+<body>
+    <div class="video">
+        <video controls src="vala.mp4" class="onew"></video>
+    </div>
+    <div>
+        <button class="buttonc" id="aru">X</button>
+    </div>
+</body>
+
+</html>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .video {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        align-content: center;
+        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%)translateY(-50%);
+
+    }
+
+    .onew {
+        height: 60%;
+        width: 250px;
+
+
+    }
+
+    .buttonc {
+        background-color: rgb(0, 0, 0);
+        border-radius: 100%;
+        border-width: 0px;
+        height: 40px;
+        width: 40px;
+        border-color: black;
+        margin-top: 10%;
+        color: rgb(255, 238, 238);
+        display: flex;
+        margin: 20px;
+        padding: 20px;
+        margin-top: 100px;
+        margin-left: 80%;
+        font-size: xx-large;
+    }
+    .buttonc :focus {
+        outline: none;
+    }
+</style>
+<script>
+     document.getElementById("aru").addEventListener("click", function (){
+    window.location.href ="pics.html"});
+</script>
