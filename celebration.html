@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎉 Birthday Videos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffe3f5, #c8f2ff);
+            font-family: 'sans-serif';
+            color: #6b21a8;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .container {
+
+            text-align: center;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+
+        h1 {
+            font-size: 3.75rem;
+            color: #ec4899;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            margin-bottom: 8px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        p {
+            font-size: 1.125rem;
+
+            line-height: 1.75rem;
+            color: #6b21a8;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            font-weight: 100;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            margin-top: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            padding: 0 16px 40px;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .caption {
+            padding: 12px;
+            font-weight: 700;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            color: #0284c7;
+            font-weight: 700;
+        }
+
+
+        .pink {
+            border-color: #f9a8d4;
+            background-color: #fce7f3;
+            color: #ec4899;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0px 0px 10px 0px rgb(255, 65, 128);
+            overflow: hidden;
+            border: 4px solid #f75db1;
+
+        }
+
+
+        .blue {
+            border-color: #bae6fd;
+            background-color: #e0f2fe;
+            color: #3b82f6;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0px 0px 10px 0px rgb(72, 52, 253);
+            overflow: hidden;
+            border: 4px solid #898bfd;
+        }
+
+        .yellow {
+            border-color: #fde68a;
+            background-color: #fef9c3;
+            color: #eab308;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0px 0px 10px 0px rgb(255, 189, 7);
+            overflow: hidden;
+            border: 4px solid #f1fc57;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 24px;
+
+        }
+
+        .next-button {
+            background-color: #e352fa;
+            color: white;
+            padding: 10px 24px;
+            font-size: 1.125rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 0px black;
+        }
+
+        .next-button:hover {
+            background-color: #dd01fa;
+        }
+
+        .note {
+            text-align: center;
+            font-size: 0.875rem;
+            margin-top: 24px;
+            color: #4b5563;
+            padding: 0 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Title -->
+    <div class="container">
+        <h1 style=" font-family: 'Pacifico', cursive;">🎂Lets Share The Cake🎉</h1>
+        <p class="subtitle">Play To Watch Some Birthday Moments 🎊🤍<br>Scroll away
+            and the video will pause ⏸️</p>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="grid">
+        <!-- Video 1 -->
+        <div class="card pink fade-in">
+            <video class="birthday-video" controls>
+                <source src="child.mp4" type="video/mp4" />
+            </video>
+            <div class="caption" style="color: #e11d48;">🎀Baby Girl With Her Mom 🎂🤍🎀</div>
+
+        </div>
+
+        <!-- Video 2 -->
+        <div class="card blue fade-in">
+            <video class="birthday-video" controls>
+                <source src="father.mp4" type="video/mp4" />
+            </video>
+            <div class="caption" style="color: #0284c7;">🎂Little Girl Wth Her Dad🤍</div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="card yellow fade-in">
+            <video class="birthday-video" controls>
+                <source src="mother.mp4" type="video/mp4" />
+            </video>
+            <div class="caption">🎀Little Girl Her Mom🤍</div>
+        </div>
+    </div>
+
+    <!-- Next Button -->
+    <div class="button-container">
+        <a href="pics.html">
+            <button class="next-button">🎈 Next</button>
+        </a>
+    </div>
+
+    <!-- Note -->
+    <div class="note">
+        <p>
+        <h2>Note!!!</h2>Sorry If The above Video Hurts You... Nan Edu Eduku Create Panan Nah Nee Hostel La Thaniya
+        BDY Celebrate Pandra
+        First Tym Amma Appa Elama...So Avanga Un Kooda Erukura Feel Erukanu nu Dha Create Panan🤍</p>
+    </div>
+
+    <!-- Simple JavaScript -->
+    <script>
+        // Fade-in animation
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeEls.forEach(el => fadeObserver.observe(el));
+        // Pause video when out of screen
+        const videoEls = document.querySelectorAll('.birthday-video');
+        const videoObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && !entry.target.paused) {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+        videoEls.forEach(video => videoObserver.observe(video));
+    </script>
+</body>
+
+</html>
